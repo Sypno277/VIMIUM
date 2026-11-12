@@ -1,0 +1,53 @@
+{
+  "manifest_version": 3,
+  "name": "Kestrel — Keyboard Browsing",
+  "version": "1.0.0",
+  "description": "Keyboard-first browsing: hover labels over every link and control, type two letters and you're there. Browse at the speed of thought.",
+  "minimum_chrome_version": "110",
+  "permissions": ["storage", "tabs", "history", "bookmarks", "commands", "scripting", "sessions"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "assets/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Kestrel — open the command palette",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["assets/content.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": false
+    }
+  ],
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Alt+Shift+K" },
+      "description": "Open the command palette"
+    },
+    "toggle-enabled": {
+      "suggested_key": { "default": "Alt+Shift+X" },
+      "description": "Toggle Kestrel on this site"
+    },
+    "focus-omnibar": {
+      "suggested_key": { "default": "Alt+Shift+L" },
+      "description": "Open the omnibar (URL, history, bookmarks, tabs)"
+    }
+  },
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  }
+}

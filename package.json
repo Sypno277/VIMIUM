@@ -1,0 +1,34 @@
+{
+  "name": "kestrel",
+  "version": "1.0.0",
+  "description": "Keyboard-first browser extension — hover labels over every link and control, type two letters and you're there. Browse at the speed of thought.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "vite build --watch --mode development",
+    "build": "tsc --noEmit && vite build && node scripts/make-icons.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "lint": "eslint \"src/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\" \"*.json\" \"*.md\""
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@types/node": "^22.20.2",
+    "@vitest/coverage-v8": "^2.1.9",
+    "eslint": "^9.13.0",
+    "eslint-plugin-import": "^2.31.0",
+    "jsdom": "^25.0.1",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^8.11.0",
+    "vite": "^5.4.0",
+    "vitest": "^2.0.5"
+  }
+}

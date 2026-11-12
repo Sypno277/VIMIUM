@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# D18: build artefacts must never live in the repo root. These are generated
+# into dist/ by `npm run build`; anything here is a stale leftover.
+/assets/
+/options/
+
+# Test / coverage
+coverage/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/settings.json
+
+# Logs
+*.log
+npm-debug.log*
